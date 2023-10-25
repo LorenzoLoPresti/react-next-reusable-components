@@ -15,7 +15,7 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
     <Box
       tag="section"
       hasFlex
-      width="w-3/4"
+      width="w-3/4 lg:w-4/6"
       hasMarginAuto
       centeredMainAxes
       centeredCrossAxes
@@ -25,7 +25,7 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
         hasFlex
         hasFlexCol
         centeredCrossAxes
-        customTailwindStyle="gap-[25px] order-2 lg:flex-start"
+        customTailwindStyle="gap-[25px] order-2 lg:items-start"
       >
         <Text tag="h1" isBold>
           Main Title
