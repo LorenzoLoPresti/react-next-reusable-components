@@ -15,15 +15,13 @@ const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
   return (
     <>
       <Box
-        tag="header"
-        tagChild="nav"
+        tag="nav"
         hasFlex
-        isJBetween
-        bgDark
+        isJustifyBetween
         isCenterY
         width="w-3/4 lg:w-2/4"
         hasMarginAuto
-        childCustomTailwindStyle="h-[70px] lg:h-[110px]"
+        customTailwindStyle="h-[70px] lg:h-[110px]"
       >
         <Text tag="p">logo</Text>
         <ListItems hasFlex customTailwindStyle="gap-[25px]">

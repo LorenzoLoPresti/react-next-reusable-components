@@ -11,62 +11,45 @@ type boxTags =
 
 type BoxProps = PropsWithChildren<{
   tag?: boxTags;
-  tagChild?: boxTags;
   width?: string;
   hasMarginAuto?: boolean;
   hasFlex?: boolean;
   hasFlexCol?: boolean;
-  isCenteredXY?: boolean;
+  isCenteredX?: boolean;
   isCenterY?: boolean;
-  isJBetween?: boolean;
-  childCustomTailwindStyle?: string;
-  mainCustomTailwindStyle?: string;
+  isJustifyBetween?: boolean;
+  customTailwindStyle?: string;
   bgColor?: string;
   bgDark?: boolean;
 }>;
 
-const Box: FC<BoxProps> = ({
+const Container: FC<BoxProps> = ({
   tag,
-  tagChild,
   width,
   hasMarginAuto,
   hasFlex,
   hasFlexCol,
-  isCenteredXY,
+  isCenteredX,
   isCenterY,
-  isJBetween,
-  childCustomTailwindStyle,
-  mainCustomTailwindStyle,
+  isJustifyBetween,
+  customTailwindStyle,
   bgColor,
   bgDark,
   children,
 }) => {
-  const boxParentStyle = `${bgDark && !bgColor ? "bg-black text-white" : ""} ${
+  const boxStyle = `${bgDark && !bgColor ? "bg-black text-white" : ""} ${
     bgColor && !bgDark ? bgColor : ""
-  } ${mainCustomTailwindStyle ? mainCustomTailwindStyle : ""} ${
-    !tagChild && width ? width : "w-full"
-  }`;
-
-  const boxChildStyle = `${width ? width : "w-100"} ${
-    hasMarginAuto ? "m-auto" : ""
-  } ${hasFlex ? "flex" : ""} ${hasFlexCol && hasFlex ? "flex-col" : ""} ${
-    isCenteredXY ? "justify-center items-center" : ""
+  } ${width ? width : "w-full"} ${hasMarginAuto ? "m-auto" : ""} ${
+    hasFlex ? "flex" : ""
+  } ${hasFlexCol && hasFlex ? "flex-col" : ""} ${
+    isCenteredX ? "justify-center" : ""
   } ${isCenterY ? "items-center" : ""} ${
-    isJBetween ? "justify-between" : ""
-  }  ${childCustomTailwindStyle ? childCustomTailwindStyle : ""}`;
+    isJustifyBetween ? "justify-between" : ""
+  } ${customTailwindStyle ? customTailwindStyle : ""}`;
 
-  const ContainerElement = tag || "div";
-  const ChildElement = tagChild || "div";
+  const BoxElement = tag || "div";
 
-  return (
-    <ContainerElement className={boxParentStyle}>
-      {tagChild ? (
-        <ChildElement className={`${boxChildStyle}`}>{children}</ChildElement>
-      ) : (
-        children
-      )}
-    </ContainerElement>
-  );
+  return <BoxElement className={boxStyle}>{children}</BoxElement>;
 };
 
-export default Box;
+export default Container;

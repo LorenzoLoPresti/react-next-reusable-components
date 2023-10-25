@@ -13,15 +13,15 @@ type JumbotronProps = PropsWithChildren<{
 const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
   return (
     <Box
-      tag="main"
-      tagChild="section"
+      tag="section"
       hasFlex
       width="w-3/4"
       hasMarginAuto
-      isCenteredXY
-      childCustomTailwindStyle="h-[500px] flex-col lg:flex-row gap-[30px]"
+      isCenteredX
+      isCenterY
+      customTailwindStyle="h-[500px] flex-col lg:flex-row gap-[30px]"
     >
-      <Box mainCustomTailwindStyle="flex flex-col gap-[25px]">
+      <Box customTailwindStyle="flex flex-col gap-[25px]">
         <Text tag="h1">Only the best</Text>
         <Text tag="h4">Count: {count}</Text>
         <Button
