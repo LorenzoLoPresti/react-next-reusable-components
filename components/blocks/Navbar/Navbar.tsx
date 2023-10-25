@@ -8,7 +8,7 @@ import ListElement from "@/components/generalComponents/ListElement/ListElement"
 import Button from "@/components/generalComponents/Button/Button";
 
 type NavbarProps = PropsWithChildren<{
-  handleCountChange: () => void;
+  handleCountChange?: () => void;
 }>;
 
 const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
@@ -23,20 +23,24 @@ const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
         hasMarginAuto
         classNames="h-[70px] lg:h-[110px]"
       >
-        <Text tag="p">logo</Text>
+        <Text tag="p">
+          <Link href={"/"}>logo</Link>
+        </Text>
         <ListItems hasFlex classNames="gap-[25px]">
-          <ListElement isCenteredXY classNames="hidden md:flex">
-            Elemento
-          </ListElement>
           <ListElement isCenteredXY>
+            <Link href={"/page2"}>Page2</Link>
+          </ListElement>
+          <ListElement isCenteredXY classNames="hidden md:flex">
             <Link href={"https://google.com"} target="_blank">
               Vai a google
             </Link>
           </ListElement>
           <ListElement>
-            <Button bgWhite isRounded handleOnClick={handleCountChange}>
-              Change
-            </Button>
+            {handleCountChange && (
+              <Button bgWhite isRounded handleOnClick={handleCountChange}>
+                Change
+              </Button>
+            )}
           </ListElement>
         </ListItems>
       </Box>

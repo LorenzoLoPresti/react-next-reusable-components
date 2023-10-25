@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 
 export type ButtonProps = PropsWithChildren<{
-  handleOnClick: () => void;
+  handleOnClick?: () => void;
   textWhite?: boolean;
   bgWhite?: boolean;
   classNames?: string;

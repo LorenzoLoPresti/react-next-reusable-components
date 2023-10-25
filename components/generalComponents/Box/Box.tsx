@@ -23,7 +23,7 @@ type BoxProps = PropsWithChildren<{
   bgDark?: boolean;
 }>;
 
-const Container: FC<BoxProps> = ({
+const Box: FC<BoxProps> = ({
   tag,
   width,
   hasMarginAuto,
@@ -52,4 +52,4 @@ const Container: FC<BoxProps> = ({
   return <BoxElement className={boxStyle}>{children}</BoxElement>;
 };
 
-export default Container;
+export default Box;
