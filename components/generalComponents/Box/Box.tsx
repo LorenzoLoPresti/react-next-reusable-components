@@ -18,7 +18,7 @@ type BoxProps = PropsWithChildren<{
   centeredMainAxes?: boolean;
   centeredCrossAxes?: boolean;
   isJustifyBetween?: boolean;
-  customTailwindStyle?: string;
+  classNames?: string;
   bgColor?: string;
   bgDark?: boolean;
 }>;
@@ -32,7 +32,7 @@ const Container: FC<BoxProps> = ({
   centeredMainAxes,
   centeredCrossAxes,
   isJustifyBetween,
-  customTailwindStyle,
+  classNames,
   bgColor,
   bgDark,
   children,
@@ -45,7 +45,7 @@ const Container: FC<BoxProps> = ({
     centeredMainAxes ? "justify-center" : ""
   } ${centeredCrossAxes ? "items-center" : ""} ${
     isJustifyBetween ? "justify-between" : ""
-  } ${customTailwindStyle ? customTailwindStyle : ""}`;
+  } ${classNames ? classNames : ""}`;
 
   const BoxElement = tag || "div";
 

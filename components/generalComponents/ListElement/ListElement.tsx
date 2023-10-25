@@ -4,18 +4,18 @@ export type ListElementProps = PropsWithChildren<{
   isWhite?: boolean;
   isLink?: boolean;
   isCenteredXY?: boolean;
-  customTailwindStyle?: string;
+  classNames?: string;
 }>;
 
 const ListElement: FC<ListElementProps> = ({
   isWhite,
   isCenteredXY,
-  customTailwindStyle,
+  classNames,
   children,
 }) => {
   const listElementStyle = `${isCenteredXY ? "flex items-center" : ""} ${
     isWhite ? "text-white" : ""
-  } ${customTailwindStyle ? customTailwindStyle : ""}`;
+  } ${classNames ? classNames : ""}`;
 
   return <li className={listElementStyle}>{children}</li>;
 };

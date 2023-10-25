@@ -21,11 +21,11 @@ const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
         centeredCrossAxes
         width="w-3/4 lg:w-2/4"
         hasMarginAuto
-        customTailwindStyle="h-[70px] lg:h-[110px]"
+        classNames="h-[70px] lg:h-[110px]"
       >
         <Text tag="p">logo</Text>
-        <ListItems hasFlex customTailwindStyle="gap-[25px]">
-          <ListElement isCenteredXY customTailwindStyle="hidden md:flex">
+        <ListItems hasFlex classNames="gap-[25px]">
+          <ListElement isCenteredXY classNames="hidden md:flex">
             Elemento
           </ListElement>
           <ListElement isCenteredXY>

@@ -6,7 +6,7 @@ export type TextProps = PropsWithChildren<{
   tag?: TextTags;
   styledAs?: TextTags;
   isWhite?: boolean;
-  customTailwindStyle?: string;
+  classNames?: string;
   isBold?: boolean;
 }>;
 
@@ -14,7 +14,7 @@ const Text: FC<TextProps> = ({
   tag,
   styledAs,
   isWhite,
-  customTailwindStyle,
+  classNames,
   isBold,
   children,
 }) => {
@@ -31,7 +31,7 @@ const Text: FC<TextProps> = ({
   };
 
   const textStyle = `${textSizesStyle[styledAs ?? TextElement]} ${
-    customTailwindStyle || ""
+    classNames || ""
   }`;
   return (
     <TextElement

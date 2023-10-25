@@ -3,17 +3,17 @@ import { FC, PropsWithChildren } from "react";
 export type ListItemsProps = PropsWithChildren<{
   isOrderedList?: boolean;
   hasFlex?: boolean;
-  customTailwindStyle?: string;
+  classNames?: string;
 }>;
 
 const ListItems: FC<ListItemsProps> = ({
   isOrderedList,
   hasFlex,
-  customTailwindStyle,
+  classNames,
   children,
 }) => {
   const ListItemsElement = isOrderedList ? "ol" : "ul";
-  const listItemsStyle = `${hasFlex ? "flex" : ""} ${customTailwindStyle}`;
+  const listItemsStyle = `${hasFlex ? "flex" : ""} ${classNames}`;
 
   return (
     <ListItemsElement className={listItemsStyle}>{children}</ListItemsElement>

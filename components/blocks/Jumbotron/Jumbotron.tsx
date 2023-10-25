@@ -19,13 +19,13 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
       hasMarginAuto
       centeredMainAxes
       centeredCrossAxes
-      customTailwindStyle="h-[500px] flex-col lg:flex-row gap-[30px]"
+      classNames="h-[500px] flex-col lg:flex-row gap-[30px]"
     >
       <Box
         hasFlex
         hasFlexCol
         centeredCrossAxes
-        customTailwindStyle="gap-[25px] order-2 lg:items-start"
+        classNames="gap-[25px] order-2 lg:items-start"
       >
         <Text tag="h1" isBold>
           Main Title
@@ -35,7 +35,7 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
           hasSimpleBorder
           isRounded
           handleOnClick={resetCount}
-          customTailwindStyle="w-[110px]"
+          classNames="w-[110px]"
         >
           Reset
         </Button>
