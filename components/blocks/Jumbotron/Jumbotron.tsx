@@ -17,12 +17,19 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
       hasFlex
       width="w-3/4"
       hasMarginAuto
-      isCenteredX
-      isCenterY
+      centeredMainAxes
+      centeredCrossAxes
       customTailwindStyle="h-[500px] flex-col lg:flex-row gap-[30px]"
     >
-      <Box customTailwindStyle="flex flex-col gap-[25px]">
-        <Text tag="h1">Only the best</Text>
+      <Box
+        hasFlex
+        hasFlexCol
+        centeredCrossAxes
+        customTailwindStyle="gap-[25px] order-2 lg:flex-start"
+      >
+        <Text tag="h1" isBold>
+          Main Title
+        </Text>
         <Text tag="h4">Count: {count}</Text>
         <Button
           hasSimpleBorder
@@ -33,7 +40,7 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
           Reset
         </Button>
       </Box>
-      <Image src={img} alt="next-logo" />
+      <Image src={img} alt="next-logo" className="order-1 lg:order-2" />
     </Box>
   );
 };

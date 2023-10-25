@@ -15,8 +15,8 @@ type BoxProps = PropsWithChildren<{
   hasMarginAuto?: boolean;
   hasFlex?: boolean;
   hasFlexCol?: boolean;
-  isCenteredX?: boolean;
-  isCenterY?: boolean;
+  centeredMainAxes?: boolean;
+  centeredCrossAxes?: boolean;
   isJustifyBetween?: boolean;
   customTailwindStyle?: string;
   bgColor?: string;
@@ -29,8 +29,8 @@ const Container: FC<BoxProps> = ({
   hasMarginAuto,
   hasFlex,
   hasFlexCol,
-  isCenteredX,
-  isCenterY,
+  centeredMainAxes,
+  centeredCrossAxes,
   isJustifyBetween,
   customTailwindStyle,
   bgColor,
@@ -42,8 +42,8 @@ const Container: FC<BoxProps> = ({
   } ${width ? width : "w-full"} ${hasMarginAuto ? "m-auto" : ""} ${
     hasFlex ? "flex" : ""
   } ${hasFlexCol && hasFlex ? "flex-col" : ""} ${
-    isCenteredX ? "justify-center" : ""
-  } ${isCenterY ? "items-center" : ""} ${
+    centeredMainAxes ? "justify-center" : ""
+  } ${centeredCrossAxes ? "items-center" : ""} ${
     isJustifyBetween ? "justify-between" : ""
   } ${customTailwindStyle ? customTailwindStyle : ""}`;
 

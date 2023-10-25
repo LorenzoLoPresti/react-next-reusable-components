@@ -21,11 +21,11 @@ const Text: FC<TextProps> = ({
   const TextElement = tag || "p";
   const textSizesStyle: Record<TextTags, string> = {
     h1: `lg:text-[70px] md:text-[50px] text-[42px] leading-[45px] lg:leading-[78.5px]`,
-    h2: `lg:text-[50px]  md:text-[42px] text-[36px] leading-[38px] lg:leading-[40px]`,
-    h3: `lg:text-[42px]  md:text-[36px] text-[32px] leading-[34px]  lg:leading-[36px]`,
-    h4: `lg:text-[36px]  md:text-[32px] text-[24px] leading-[28px]  lg:leading-[28px]`,
-    h5: `lg:text-[32px]  md:text-[24px] text-[20px] leading-[22px] lg:leading-[22px]`,
-    h6: `lg:text-[24px]  md:text-[20px] leading-[24px]`,
+    h2: `lg:text-[50px]  md:text-[42px] text-[36px] leading-[46px] lg:leading-[54px]`,
+    h3: `lg:text-[42px]  md:text-[36px] text-[32px] leading-[40px]  lg:leading-[46px]`,
+    h4: `lg:text-[36px]  md:text-[32px] text-[24px] leading-[36px]  lg:leading-[40px]`,
+    h5: `lg:text-[32px]  md:text-[24px] text-[20px] leading-[28px] lg:leading-[36px]`,
+    h6: `lg:text-[24px]  text-[20px] leading-[28px]`,
     p: `text-md`,
     span: `text-md`,
   };

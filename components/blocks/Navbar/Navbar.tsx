@@ -18,7 +18,7 @@ const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
         tag="nav"
         hasFlex
         isJustifyBetween
-        isCenterY
+        centeredCrossAxes
         width="w-3/4 lg:w-2/4"
         hasMarginAuto
         customTailwindStyle="h-[70px] lg:h-[110px]"
@@ -26,11 +26,11 @@ const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
         <Text tag="p">logo</Text>
         <ListItems hasFlex customTailwindStyle="gap-[25px]">
           <ListElement isCenteredXY customTailwindStyle="hidden md:flex">
-            ciao
+            Elemento
           </ListElement>
           <ListElement isCenteredXY>
             <Link href={"https://google.com"} target="_blank">
-              google
+              Vai a google
             </Link>
           </ListElement>
           <ListElement>
