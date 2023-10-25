@@ -19,7 +19,8 @@ type BoxProps = PropsWithChildren<{
   isCenteredXY?: boolean;
   isCenterY?: boolean;
   isJBetween?: boolean;
-  customTailwindStyle?: string;
+  childCustomTailwindStyle?: string;
+  mainCustomTailwindStyle?: string;
   bgColor?: string;
   bgDark?: boolean;
 }>;
@@ -34,14 +35,17 @@ const Box: FC<BoxProps> = ({
   isCenteredXY,
   isCenterY,
   isJBetween,
-  customTailwindStyle,
+  childCustomTailwindStyle,
+  mainCustomTailwindStyle,
   bgColor,
   bgDark,
   children,
 }) => {
   const boxParentStyle = `${bgDark && !bgColor ? "bg-black text-white" : ""} ${
     bgColor && !bgDark ? bgColor : ""
-  } w-full`;
+  } ${mainCustomTailwindStyle ? mainCustomTailwindStyle : ""} ${
+    !tagChild && width ? width : "w-full"
+  }`;
 
   const boxChildStyle = `${width ? width : "w-100"} ${
     hasMarginAuto ? "m-auto" : ""
@@ -49,7 +53,7 @@ const Box: FC<BoxProps> = ({
     isCenteredXY ? "justify-center items-center" : ""
   } ${isCenterY ? "items-center" : ""} ${
     isJBetween ? "justify-between" : ""
-  }  ${customTailwindStyle}`;
+  }  ${childCustomTailwindStyle ? childCustomTailwindStyle : ""}`;
 
   const ContainerElement = tag || "div";
   const ChildElement = tagChild || "div";
