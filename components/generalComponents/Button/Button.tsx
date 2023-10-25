@@ -19,7 +19,7 @@ const Button: FC<ButtonProps> = ({
   children,
 }) => {
   const buttonStyle = `${!bgWhite && textWhite ? "text-white" : ""} ${
-    bgWhite ? "bg-white" : ""
+    bgWhite ? "bg-white text-black" : ""
   } ${hasSimpleBorder ? "border-black border-[1px] solid" : ""} ${
     isRounded ? "rounded" : ""
   } py-1 px-2 ${customTailwindStyle}`;

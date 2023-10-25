@@ -11,6 +11,7 @@ type boxTags =
 
 type BoxProps = PropsWithChildren<{
   tag?: boxTags;
+  tagChild?: boxTags;
   width?: string;
   hasMarginAuto?: boolean;
   hasFlex?: boolean;
@@ -25,6 +26,7 @@ type BoxProps = PropsWithChildren<{
 
 const Box: FC<BoxProps> = ({
   tag,
+  tagChild,
   width,
   hasMarginAuto,
   hasFlex,
@@ -39,7 +41,7 @@ const Box: FC<BoxProps> = ({
 }) => {
   const boxParentStyle = `${bgDark && !bgColor ? "bg-black text-white" : ""} ${
     bgColor && !bgDark ? bgColor : ""
-  } w-100`;
+  } w-full`;
 
   const boxChildStyle = `${width ? width : "w-100"} ${
     hasMarginAuto ? "m-auto" : ""
@@ -50,10 +52,15 @@ const Box: FC<BoxProps> = ({
   }  ${customTailwindStyle}`;
 
   const ContainerElement = tag || "div";
+  const ChildElement = tagChild || "div";
 
   return (
     <ContainerElement className={boxParentStyle}>
-      <div className={`${boxChildStyle}`}>{children}</div>
+      {tagChild ? (
+        <ChildElement className={`${boxChildStyle}`}>{children}</ChildElement>
+      ) : (
+        children
+      )}
     </ContainerElement>
   );
 };
