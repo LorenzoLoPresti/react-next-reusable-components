@@ -1,12 +1,19 @@
+"use client";
 import BlogArticle from "@/components/blocks/BlogArticle/BlogArticle";
 import Card from "@/components/blocks/Card/Card";
 import Box from "@/components/generalComponents/Box/Box";
 import Text from "@/components/generalComponents/Text/Text";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import img from "../../public/spaceplaceholder.jpg";
 
 const Page2: FC = () => {
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/todos/1")
+  //     .then((response) => response.json())
+  //     .then((json) => console.log(json));
+  // }, []);
+
   return (
     <Box
       tag="main"
