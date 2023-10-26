@@ -19,6 +19,7 @@ type BoxProps = PropsWithChildren<{
   centeredCrossAxes?: boolean;
   isJustifyBetween?: boolean;
   classNames?: string;
+  onClick?: () => void;
   bgColor?: string;
   bgDark?: boolean;
 }>;
@@ -34,6 +35,7 @@ const Box: FC<BoxProps> = ({
   isJustifyBetween,
   classNames,
   bgColor,
+  onClick,
   bgDark,
   children,
 }) => {
@@ -49,7 +51,11 @@ const Box: FC<BoxProps> = ({
 
   const BoxElement = tag || "div";
 
-  return <BoxElement className={boxStyle}>{children}</BoxElement>;
+  return (
+    <BoxElement className={boxStyle} onClick={onClick && onClick}>
+      {children}
+    </BoxElement>
+  );
 };
 
 export default Box;

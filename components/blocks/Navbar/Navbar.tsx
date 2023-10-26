@@ -28,7 +28,10 @@ const Navbar: FC<NavbarProps> = ({ handleCountChange, children }) => {
         </Text>
         <ListItems hasFlex classNames="gap-[25px]">
           <ListElement isCenteredXY>
-            <Link href={"/page2"}>Page2</Link>
+            <Link href={"/page2"}>ArticlePage</Link>
+          </ListElement>
+          <ListElement isCenteredXY>
+            <Link href={"/dropdownPage"}>DropdownPage</Link>
           </ListElement>
           <ListElement isCenteredXY classNames="hidden md:flex">
             <Link href={"https://google.com"} target="_blank">
