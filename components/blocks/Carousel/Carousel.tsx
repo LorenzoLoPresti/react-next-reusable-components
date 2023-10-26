@@ -50,7 +50,7 @@ export default function Carousel({
         {data?.map((image, i) => (
           <SwiperSlide
             className="bg-subbaRed flex-col justify-center pb-10 w-[380px]"
-            key={i}
+            key={"image" + image.id}
           >
             <Card>
               <Image src={image.src} alt="alt" />

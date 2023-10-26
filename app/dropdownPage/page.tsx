@@ -62,7 +62,7 @@ const Page2: FC = () => {
       <Carousel numSlidesShown={2} isCentered>
         {data.map((data) => {
           return (
-            <SwiperSlide key={data.id}>
+            <SwiperSlide key={"carousel" + data.id}>
               <Card width="w-[400px]">
                 <Image src={data.src} alt="img" />
                 <Card.title isTextCenter>Titolo</Card.title>

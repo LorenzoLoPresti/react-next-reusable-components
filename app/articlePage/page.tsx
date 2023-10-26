@@ -8,12 +8,6 @@ import { FC, useEffect } from "react";
 import img from "../../public/spaceplaceholder.jpg";
 
 const Page2: FC = () => {
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/todos/1")
-  //     .then((response) => response.json())
-  //     .then((json) => console.log(json));
-  // }, []);
-
   return (
     <Box
       tag="main"
@@ -37,7 +31,7 @@ const CardBox = () => {
       classNames="gap-[20px] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4"
     >
       {Array.from({ length: 5 }, (_, i) => i + 1).map((_, i) => (
-        <Card hasFlex hasFlexCol centeredCrossAxes key={i}>
+        <Card hasFlex hasFlexCol centeredCrossAxes key={"card" + i}>
           <Image src={img} alt="img"></Image>
           <Card.body>
             <Card.title isTextCenter>Titolo</Card.title>
