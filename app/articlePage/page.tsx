@@ -25,7 +25,10 @@ export default Page2;
 
 const CardBox = () => {
   return (
-    <Box width="w-3/4" classNames="gap-[20px] grid grid-cols-3">
+    <Box
+      width="w-3/4"
+      classNames="gap-[20px] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4"
+    >
       {Array.from({ length: 5 }, (_, i) => i + 1).map((_, i) => (
         <Card hasFlex hasFlexCol centeredCrossAxes key={i}>
           <Image src={img} alt="img"></Image>

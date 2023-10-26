@@ -38,6 +38,7 @@ const Card = ({
       hasFlexCol={hasFlexCol}
       centeredMainAxes={centeredMainAxes}
       centeredCrossAxes={centeredCrossAxes}
+      width={width}
       classNames={cardStyle}
     >
       {children}
