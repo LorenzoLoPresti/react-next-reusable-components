@@ -30,7 +30,7 @@ const Jumbotron: FC<JumbotronProps> = ({ count, resetCount, children }) => {
         <Text tag="h1" isBold>
           Main Title
         </Text>
-        <Text tag="h4">Count: {count}</Text>
+        <Text tag="h4">Slides count: {count}</Text>
         <Button
           hasSimpleBorder
           isRounded
