@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import Jumbotron from "@/components/blocks/Jumbotron/Jumbotron";
 import Navbar from "@/components/blocks/Navbar/Navbar";
 import Box from "@/components/generalComponents/Box/Box";
@@ -7,6 +7,7 @@ import Header from "@/components/layouts/Header";
 import Main from "@/components/layouts/Main";
 import { useState, useEffect } from "react";
 // import img from "../public/spaceplaceholder.jpg";
+// import {} from "@"
 
 import {
   ApolloClient,
@@ -27,46 +28,64 @@ interface ApolloClientData {
   __typename: string;
 }
 
-export default function Home() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState<ApolloClientData[]>([]);
+export default async function Home() {
+  // const [count, setCount] = useState(0);
+  // const [data, setData] = useState<ApolloClientData[]>([]);
 
-  const handleCountChange = () => {
-    if (data.length && count < data.length) setCount((c) => c + 1);
-  };
+  // const handleCountChange = () => {
+  //   if (data.length && count < data.length) setCount((c) => c + 1);
+  // };
 
-  const handleCountDrop = () => {
-    if (data.length && count > 0) setCount((c) => c - 1);
-  };
+  // const handleCountDrop = () => {
+  //   if (data.length && count > 0) setCount((c) => c - 1);
+  // };
 
-  const handleResetCount = () => {
-    setCount(0);
-  };
+  // const handleResetCount = () => {
+  //   setCount(0);
+  // };
 
-  useEffect(() => {
-    const client = new ApolloClient({
-      uri: "https://flyby-router-demo.herokuapp.com/",
-      cache: new InMemoryCache(),
-    });
+  // useEffect(() => {
+  //   const client = new ApolloClient({
+  //     uri: "https://flyby-router-demo.herokuapp.com/",
+  //     cache: new InMemoryCache(),
+  //   });
 
-    client
-      .query({
-        query: gql`
-          query GetLocations {
-            locations {
-              id
-              name
-              description
-              photo
-            }
-          }
-        `,
-      })
-      .then((results) => {
-        console.log(results.data.locations);
-        setData(results.data.locations);
-      });
-  }, []);
+  //   client
+  //     .query({
+  //       query: gql`
+  //         query GetLocations {
+  //           locations {
+  //             id
+  //             name
+  //             description
+  //             photo
+  //           }
+  //         }
+  //       `,
+  //     })
+  //     .then((results) => {
+  //       console.log(results.data.locations);
+  //       setData(results.data.locations);
+  //     });
+  // }, []);
+
+  const data = await fetch("https://flyby-router-demo.herokuapp.com/", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `query GetLocations {
+                  locations {
+                     id
+                     name
+                     description
+                     photo
+                   }
+                 }`,
+    }),
+  }).then((res) => res.json());
+  console.log(data.data.locations);
 
   return (
     <>
@@ -74,7 +93,7 @@ export default function Home() {
         <Navbar handleCountChange={handleCountChange} />
       </Header> */}
       <Main>
-        <Jumbotron count={count} resetCount={handleResetCount} />
+        {/* <Jumbotron count={count} resetCount={handleResetCount} /> */}
         <Box
           bgDark
           tag="section"
@@ -84,7 +103,7 @@ export default function Home() {
           centeredMainAxes
           classNames="py-[20px] gap-[20px]"
         >
-          <Button
+          {/* <Button
             handleOnClick={handleCountChange}
             isRounded
             hasSimpleBorder
@@ -101,7 +120,8 @@ export default function Home() {
             classNames="w-[130px]"
           >
             Remove 1 slide
-          </Button>
+          </Button> */}
+          <p>{String(Object.keys(data))}</p>
         </Box>
         <Box
           tag="section"
@@ -109,7 +129,7 @@ export default function Home() {
           hasMarginAuto
           classNames="grid grid-cols-3 gap-[20px] py-[30px]"
         >
-          {data.length > 0 &&
+          {/* {data.length > 0 &&
             data?.map(
               (e, i) =>
                 i < count && (
@@ -121,7 +141,18 @@ export default function Home() {
                     </Card.body>
                   </Card>
                 )
-            )}
+            )} */}
+          {data?.data.locations.map(
+            (e: Record<"id" | "name" | "description" | "photo", string>) => (
+              <Card key={e.id} hasFlex hasFlexCol classNames="gap-[20px]">
+                <Image src={e.photo} alt="alt" width={400} height={400} />
+                <Card.title isTextCenter>{e.name}</Card.title>
+                <Card.body>
+                  <Text>{e.description}</Text>
+                </Card.body>
+              </Card>
+            )
+          )}
         </Box>
       </Main>
     </>
